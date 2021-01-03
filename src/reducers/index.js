@@ -7,6 +7,7 @@ const initialMoviesState = {
     showFavourites:false
 }
 export  function movies(state=initialMoviesState, action){
+    console.log('MOVIES REDUCER');
 //     if(action.type === ADD_MOVIES){
 //         return {
 //             ...state,
