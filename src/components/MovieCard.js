@@ -1,9 +1,19 @@
 // import { render } from '@testing-library/react';
 import React from 'react';
+import { addFavourites } from "../actions/index";
 
 class MovieCard extends React.Component {
+    
+    handleFavouriteClick= () =>{
+        const {movie} =this.props;
+        this.props.dispatch(addFavourites(movie));
+    }
+    handleUnFavouriteClick= () =>{
+        // const {movie} =this.props;
+        // this.props.dispatch(addFavourites(movie));
+    }
     render (){
-        const {movie} = this.props;
+        const {movie , isFavourite} = this.props;
         return (
             <div className="movie-card">
                 <div className="left">
@@ -16,7 +26,12 @@ class MovieCard extends React.Component {
                         <div className="rating">
                                 {movie.ImdbRating}
                         </div>
-                        <button className="favourite-btn">Favourite</button>
+                        {
+                            isFavourite
+                            ? <button className="unfavourite-btn" onClick={this.handleUnFavouriteClick}>Unfavourite</button>
+                            : <button className="favourite-btn" onClick={this.handleFavouriteClick}>Favourite</button>
+                        }
+                        
                     </div>
                 </div>
             </div>
