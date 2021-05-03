@@ -12,7 +12,7 @@ console.log('Store', store);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App store= {store}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
