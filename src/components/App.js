@@ -2,6 +2,7 @@ import React from 'react';
 import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
+import { addMovies } from '../actions/index';
 
 class App extends React.Component{
   componentDidMount(){
@@ -11,16 +12,15 @@ class App extends React.Component{
     //changes show on app
     store.subscribe(()=>{
       console.log('Updated');
+
+      //forceUpdate forcefully render the app
       this.forceUpdate();
     })
 
     //making api call
 
     //dispatch action
-    store.dispatch({
-        type: 'ADD_MOVIES',
-        movies :data
-    });
+    store.dispatch(addMovies(data));
 
     console.log('STATE', this.props.store.getState());
 
